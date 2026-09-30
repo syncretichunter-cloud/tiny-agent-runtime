@@ -14,6 +14,35 @@ npm test
 
 无需安装运行时依赖。在线模型演示需要自行配置 API Key；离线报告演示不需要 Key。
 
+## 连续对话 CLI
+
+需要 Node.js >=22.19.0（原生 TypeScript 类型擦除）。克隆后无需 `npm install`，没有运行时依赖：
+
+```bash
+export OPENAI_MODEL='your-model-id'             # 必填：服务实际支持的模型
+export OPENAI_BASE_URL='https://api.openai.com/v1' # 可选，默认此地址
+export OPENAI_API_KEY='your-key'                # 按服务要求，本地服务可不设置
+npm run chat
+```
+
+这是使用 `OpenAICompatibleClient` 的真实非流式 HTTP 对话，不是离线演示。每行是一轮输入；空行跳过，`/help` 显示帮助，`/exit`、`/quit` 退出，EOF 正常结束。连续粘贴或管道输入按顺序处理，不丢缓冲行。Ctrl-C 取消当前模型请求，等待运行结束后清理会话并以 130 退出。
+
+- `AGENT_WORKSPACE` 默认 `./workspace`，自动递归创建并使用 canonical realpath；只放允许模型读取/覆盖的练习文件，不要设为仓库根目录或含密钥的目录。
+- `AGENT_SESSION` 默认当前目录下 `.agent-sessions/<工作区 canonical 路径的 SHA-256>.jsonl`。**会话放在工作区外**，而不是 `workspace/session.jsonl`，避免模型读写自己的日志。可覆盖为任意工作区外路径，父目录自动创建；实际路径在启动时打印。工作区内的日志路径（含符号链接目标）被拒绝。
+- 已存在的日志自动校验并恢复完整历史；新建使用排他创建，不覆盖。配置包含 model、baseURL、中文 prompt、canonical workspace 和读写工具定义，不存 API Key 或工具 execute 函数。模型/地址/提示词/工作区/工具定义变化导致不匹配时，直接报错，不发送 HTTP，也不创建替代日志。API Key 可轮换，不影响配置匹配。
+- 开始新会话推荐 `AGENT_SESSION=./.agent-sessions/new-name.jsonl npm run chat`（使用尚不存在的路径）。不要为了“修复”异常自动删除或覆盖旧日志。移动整个日志到备份位置后，默认路径会新建会话。
+- 网络/模型/持久化错误会立即退出非零，不继续已失败的 session，不自动重试或重放工具。错误/取消前可能已有消息或文件副作用落盘；先检查日志及外部状态，确认后再运行或选新日志。坏 JSON、截断和未配对工具调用不会当作“文件不存在”。
+
+CLI **始终只注册 read_file / write_file**，即使设置 `AGENT_ALLOW_SHELL=1` 也不启用 shell。文件工具可覆盖工作区文件；路径检查不是 OS 沙箱，也不防恶意本地进程的符号链接竞态/硬链接。不要把 session 的硬链接放入工作区。文件和模型输出都可能带 prompt injection，提示词不能替代权限隔离和人工审查。API Key 不自动写入配置，但用户/模型/工具消息及文件内容会持久化，也会发送给所配模型服务；不要在聊天中输入密钥。baseURL 应使用不含凭据的服务地址。
+
+**同一日志仅允许一个进程使用**，没有跨进程文件锁；先退出再恢复。历史全部载入内存，长会话可能超出模型上下文窗口。
+
+不会自动加载 `.env`。如需显式加载，可用 Node 自带开关（自行创建 `.env`，勿提交密钥）：
+
+```bash
+node --env-file=.env src/chat.ts
+```
+
 ## 系列实现范围
 
 主线：模型适配器（15）→ 顺序 Agent Loop（16）→ 文件工具与执行事件（17）→ 会话恢复与业务定制（18）。零运行时依赖，Node.js >=22.19.0。

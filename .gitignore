@@ -7,4 +7,6 @@ node_modules/
 *.key
 dist/
 coverage/
+.agent-sessions/
+workspace/
 .DS_Store
