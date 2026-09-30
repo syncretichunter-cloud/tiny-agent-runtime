@@ -1,0 +1,73 @@
+src/demo.ts(5,17): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/demo.ts(6,16): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/demo.ts(7,15): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/demo.ts(8,16): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/demo.ts(15,3): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/demo.ts(18,33): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/demo.ts(18,64): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/demo.ts(19,17): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/report-assistant.ts(1,28): error TS2591: Cannot find name 'node:crypto'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/report-assistant.ts(2,30): error TS2591: Cannot find name 'node:fs'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/report-demo.ts(1,20): error TS2591: Cannot find name 'node:assert/strict'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/report-demo.ts(2,44): error TS2591: Cannot find name 'node:fs/promises'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/report-demo.ts(3,31): error TS2591: Cannot find name 'node:path'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/report-demo.ts(8,27): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/report-demo.ts(30,121): error TS18048: 'oldTool' is possibly 'undefined'.
+src/session/session.ts(1,42): error TS2591: Cannot find name 'node:fs/promises'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/session/session.ts(2,50): error TS2591: Cannot find name 'node:path'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/session/session.ts(52,19): error TS2503: Cannot find namespace 'NodeJS'.
+src/session/session.ts(93,67): error TS7006: Parameter 'text' implicitly has an 'any' type.
+src/session/session.ts(93,72): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/tools/index.ts(1,26): error TS2591: Cannot find name 'node:child_process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/tools/index.ts(2,61): error TS2591: Cannot find name 'node:fs/promises'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/tools/index.ts(3,27): error TS2591: Cannot find name 'node:util'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/tools/index.ts(4,56): error TS2591: Cannot find name 'node:path'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/tools/index.ts(5,30): error TS2591: Cannot find name 'node:fs'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/tools/index.ts(20,62): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/tools/index.ts(39,21): error TS2503: Cannot find namespace 'NodeJS'.
+src/tools/index.ts(87,18): error TS2591: Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/tools/index.ts(87,58): error TS2591: Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/tools/index.ts(89,25): error TS2503: Cannot find namespace 'NodeJS'.
+test/agent-loop.test.ts(1,20): error TS2591: Cannot find name 'node:assert/strict'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/agent-loop.test.ts(2,18): error TS2591: Cannot find name 'node:test'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/agent-loop.test.ts(221,20): error TS18046: 'error' is of type 'unknown'.
+test/agent-loop.test.ts(222,20): error TS18046: 'error' is of type 'unknown'.
+test/openai-compatible-client.test.ts(1,20): error TS2591: Cannot find name 'node:assert/strict'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/openai-compatible-client.test.ts(2,73): error TS2591: Cannot find name 'node:http'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/openai-compatible-client.test.ts(3,18): error TS2591: Cannot find name 'node:test'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/openai-compatible-client.test.ts(12,17): error TS2591: Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/openai-compatible-client.test.ts(13,46): error TS2591: Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/openai-compatible-client.test.ts(14,21): error TS2591: Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/openai-compatible-client.test.ts(21,32): error TS7006: Parameter 'req' implicitly has an 'any' type.
+test/openai-compatible-client.test.ts(21,37): error TS7006: Parameter 'res' implicitly has an 'any' type.
+test/openai-compatible-client.test.ts(29,21): error TS7006: Parameter 'error' implicitly has an 'any' type.
+test/openai-compatible-client.test.ts(176,22): error TS18046: 'error' is of type 'unknown'.
+test/openai-compatible-client.test.ts(177,22): error TS18046: 'error' is of type 'unknown'.
+test/session.test.ts(1,20): error TS2591: Cannot find name 'node:assert/strict'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/session.test.ts(2,18): error TS2591: Cannot find name 'node:test'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/session.test.ts(3,50): error TS2591: Cannot find name 'node:fs/promises'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/session.test.ts(4,24): error TS2591: Cannot find name 'node:os'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/session.test.ts(5,22): error TS2591: Cannot find name 'node:path'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/session.test.ts(6,27): error TS2591: Cannot find name 'node:child_process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/session.test.ts(38,88): error TS7006: Parameter 't' implicitly has an 'any' type.
+test/session.test.ts(50,75): error TS7006: Parameter 'line' implicitly has an 'any' type.
+test/session.test.ts(52,41): error TS7006: Parameter 'record' implicitly has an 'any' type.
+test/session.test.ts(55,65): error TS7006: Parameter 't' implicitly has an 'any' type.
+test/session.test.ts(64,94): error TS7006: Parameter 't' implicitly has an 'any' type.
+test/session.test.ts(75,78): error TS7006: Parameter 't' implicitly has an 'any' type.
+test/session.test.ts(88,87): error TS7006: Parameter 't' implicitly has an 'any' type.
+test/session.test.ts(99,78): error TS7006: Parameter 't' implicitly has an 'any' type.
+test/session.test.ts(110,100): error TS7006: Parameter 't' implicitly has an 'any' type.
+test/session.test.ts(113,30): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/session.test.ts(113,114): error TS2591: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/tools-events.test.ts(1,20): error TS2591: Cannot find name 'node:assert/strict'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/tools-events.test.ts(2,18): error TS2591: Cannot find name 'node:test'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/tools-events.test.ts(3,55): error TS2591: Cannot find name 'node:fs/promises'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/tools-events.test.ts(4,24): error TS2591: Cannot find name 'node:os'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/tools-events.test.ts(5,22): error TS2591: Cannot find name 'node:path'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/tools-events.test.ts(42,102): error TS7006: Parameter 't' implicitly has an 'any' type.
+test/tools-events.test.ts(45,53): error TS2591: Cannot find name 'node:fs/promises'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/tools-events.test.ts(63,79): error TS7006: Parameter 't' implicitly has an 'any' type.
+test/tools-events.test.ts(65,53): error TS2591: Cannot find name 'node:fs/promises'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+test/tools-events.test.ts(78,81): error TS7006: Parameter 't' implicitly has an 'any' type.
+test/tools-events.test.ts(80,53): error TS2591: Cannot find name 'node:fs/promises'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.

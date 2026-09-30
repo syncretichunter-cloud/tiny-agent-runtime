@@ -1,0 +1,206 @@
+
+> test
+> node --experimental-strip-types --test test/*.test.ts
+
+TAP version 13
+# Subtest: returns a final text response after one model turn
+ok 1 - returns a final text response after one model turn
+  ---
+  duration_ms: 2.136771
+  type: 'test'
+  ...
+# Subtest: executes a tool, appends its correlated result, and asks the model again
+ok 2 - executes a tool, appends its correlated result, and asks the model again
+  ---
+  duration_ms: 0.531053
+  type: 'test'
+  ...
+# Subtest: executes multiple tool calls sequentially in model order
+ok 3 - executes multiple tool calls sequentially in model order
+  ---
+  duration_ms: 0.623716
+  type: 'test'
+  ...
+# Subtest: turns an unknown tool into an error message so the model can recover
+ok 4 - turns an unknown tool into an error message so the model can recover
+  ---
+  duration_ms: 0.377109
+  type: 'test'
+  ...
+# Subtest: turns a thrown tool error into a correlated error message
+ok 5 - turns a thrown tool error into a correlated error message
+  ---
+  duration_ms: 0.490856
+  type: 'test'
+  ...
+# Subtest: does not execute tool calls from a length-truncated assistant message
+ok 6 - does not execute tool calls from a length-truncated assistant message
+  ---
+  duration_ms: 0.354015
+  type: 'test'
+  ...
+# Subtest: stops before exceeding the configured model-turn limit
+ok 7 - stops before exceeding the configured model-turn limit
+  ---
+  duration_ms: 1.050672
+  type: 'test'
+  ...
+# Subtest: rejects invalid turn limits before calling the model
+ok 8 - rejects invalid turn limits before calling the model
+  ---
+  duration_ms: 0.244608
+  type: 'test'
+  ...
+# Subtest: rejects duplicate tool names instead of silently replacing one
+ok 9 - rejects duplicate tool names instead of silently replacing one
+  ---
+  duration_ms: 0.495945
+  type: 'test'
+  ...
+# Subtest: passes the same AbortSignal to model calls and tool execution
+ok 10 - passes the same AbortSignal to model calls and tool execution
+  ---
+  duration_ms: 0.926664
+  type: 'test'
+  ...
+# Subtest: normalizes a text response and sends the expected request
+ok 11 - normalizes a text response and sends the expected request
+  ---
+  duration_ms: 28.289227
+  type: 'test'
+  ...
+# Subtest: serializes tools and parses tool calls into typed arguments
+ok 12 - serializes tools and parses tool calls into typed arguments
+  ---
+  duration_ms: 7.727145
+  type: 'test'
+  ...
+# Subtest: maps length finish reason without inventing text
+ok 13 - maps length finish reason without inventing text
+  ---
+  duration_ms: 4.81876
+  type: 'test'
+  ...
+# Subtest: throws ModelHttpError with bounded response details
+ok 14 - throws ModelHttpError with bounded response details
+  ---
+  duration_ms: 4.276269
+  type: 'test'
+  ...
+# Subtest: rejects malformed tool arguments instead of executing an ambiguous call
+ok 15 - rejects malformed tool arguments instead of executing an ambiguous call
+  ---
+  duration_ms: 4.072764
+  type: 'test'
+  ...
+# Subtest: rejects responses without a first assistant choice
+ok 16 - rejects responses without a first assistant choice
+  ---
+  duration_ms: 4.813184
+  type: 'test'
+  ...
+# Subtest: honors AbortSignal while the provider request is pending
+ok 17 - honors AbortSignal while the provider request is pending
+  ---
+  duration_ms: 2.665372
+  type: 'test'
+  ...
+# Subtest: awaited message sink persists user, assistant and tool before effects and next request
+ok 18 - awaited message sink persists user, assistant and tool before effects and next request
+  ---
+  duration_ms: 22.597339
+  type: 'test'
+  ...
+# Subtest: sink rejection prevents model and tool side effects
+ok 19 - sink rejection prevents model and tool side effects
+  ---
+  duration_ms: 0.593245
+  type: 'test'
+  ...
+# Subtest: session round-trips all internal messages and metadata into next request
+ok 20 - session round-trips all internal messages and metadata into next request
+  ---
+  duration_ms: 45.191946
+  type: 'test'
+  ...
+# Subtest: version and configuration mismatch reject restore
+ok 21 - version and configuration mismatch reject restore
+  ---
+  duration_ms: 9.302224
+  type: 'test'
+  ...
+# Subtest: bad JSON, truncated final line and invalid message reject with explicit errors
+ok 22 - bad JSON, truncated final line and invalid message reject with explicit errors
+  ---
+  duration_ms: 9.500854
+  type: 'test'
+  ...
+# Subtest: unpaired or mismatched tool calls refuse resume without replay
+ok 23 - unpaired or mismatched tool calls refuse resume without replay
+  ---
+  duration_ms: 10.835
+  type: 'test'
+  ...
+# Subtest: concurrent runs and duplicate process-local session owners are rejected
+ok 24 - concurrent runs and duplicate process-local session owners are rejected
+  ---
+  duration_ms: 16.304464
+  type: 'test'
+  ...
+# Subtest: failed run poisons instance; existing log is never overwritten
+ok 25 - failed run poisons instance; existing log is never overwritten
+  ---
+  duration_ms: 8.478735
+  type: 'test'
+  ...
+# Subtest: offline report demo runs in two processes, restores context and writes a real report
+ok 26 - offline report demo runs in two processes, restores context and writes a real report
+  ---
+  duration_ms: 200.807984
+  type: 'test'
+  ...
+# Subtest: events report ordered lifecycle and correlated tool result
+ok 27 - events report ordered lifecycle and correlated tool result
+  ---
+  duration_ms: 2.431822
+  type: 'test'
+  ...
+# Subtest: failed tool emits tool_end with error and remains visible to next turn
+ok 28 - failed tool emits tool_end with error and remains visible to next turn
+  ---
+  duration_ms: 0.367892
+  type: 'test'
+  ...
+# Subtest: event callback exception propagates; events are observation not persistence
+ok 29 - event callback exception propagates; events are observation not persistence
+  ---
+  duration_ms: 0.688229
+  type: 'test'
+  ...
+# Subtest: read/write tools validate arguments, persist UTF-8, and reject traversal and symlinks
+ok 30 - read/write tools validate arguments, persist UTF-8, and reject traversal and symlinks
+  ---
+  duration_ms: 14.647571
+  type: 'test'
+  ...
+# Subtest: real file tool result returns to the model in the next request
+ok 31 - real file tool result returns to the model in the next request
+  ---
+  duration_ms: 2.640793
+  type: 'test'
+  ...
+# Subtest: shell tool requires explicit opt-in, limits output and times out
+ok 32 - shell tool requires explicit opt-in, limits output and times out
+  ---
+  duration_ms: 211.14929
+  type: 'test'
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 32
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 441.173007

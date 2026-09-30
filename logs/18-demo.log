@@ -1,0 +1,15 @@
+workspace=/tmp/pi18-report-cy3DsV
+saved messages=6
+已读取 source.md：完成 3 项文档整理，待确认 1 项风险。
+restored old context=true; messages=10
+报告已写入 report.md，来源为 source.md。
+report.md:
+# 本地资料报告
+
+来源：source.md
+
+本地资料：本周完成 3 项文档整理，待确认 1 项风险。
+
+未知信息：风险详情待确认。
+
+exit=0

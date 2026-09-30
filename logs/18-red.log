@@ -1,0 +1,368 @@
+
+> test
+> node --experimental-strip-types --test test/*.test.ts
+
+TAP version 13
+# Subtest: returns a final text response after one model turn
+ok 1 - returns a final text response after one model turn
+  ---
+  duration_ms: 1.81626
+  type: 'test'
+  ...
+# Subtest: executes a tool, appends its correlated result, and asks the model again
+ok 2 - executes a tool, appends its correlated result, and asks the model again
+  ---
+  duration_ms: 0.454114
+  type: 'test'
+  ...
+# Subtest: executes multiple tool calls sequentially in model order
+ok 3 - executes multiple tool calls sequentially in model order
+  ---
+  duration_ms: 0.390094
+  type: 'test'
+  ...
+# Subtest: turns an unknown tool into an error message so the model can recover
+ok 4 - turns an unknown tool into an error message so the model can recover
+  ---
+  duration_ms: 0.26739
+  type: 'test'
+  ...
+# Subtest: turns a thrown tool error into a correlated error message
+ok 5 - turns a thrown tool error into a correlated error message
+  ---
+  duration_ms: 0.298255
+  type: 'test'
+  ...
+# Subtest: does not execute tool calls from a length-truncated assistant message
+ok 6 - does not execute tool calls from a length-truncated assistant message
+  ---
+  duration_ms: 0.221562
+  type: 'test'
+  ...
+# Subtest: stops before exceeding the configured model-turn limit
+ok 7 - stops before exceeding the configured model-turn limit
+  ---
+  duration_ms: 0.79224
+  type: 'test'
+  ...
+# Subtest: rejects invalid turn limits before calling the model
+ok 8 - rejects invalid turn limits before calling the model
+  ---
+  duration_ms: 0.182975
+  type: 'test'
+  ...
+# Subtest: rejects duplicate tool names instead of silently replacing one
+ok 9 - rejects duplicate tool names instead of silently replacing one
+  ---
+  duration_ms: 0.340699
+  type: 'test'
+  ...
+# Subtest: passes the same AbortSignal to model calls and tool execution
+ok 10 - passes the same AbortSignal to model calls and tool execution
+  ---
+  duration_ms: 1.579445
+  type: 'test'
+  ...
+# Subtest: normalizes a text response and sends the expected request
+ok 11 - normalizes a text response and sends the expected request
+  ---
+  duration_ms: 28.447369
+  type: 'test'
+  ...
+# Subtest: serializes tools and parses tool calls into typed arguments
+ok 12 - serializes tools and parses tool calls into typed arguments
+  ---
+  duration_ms: 7.175337
+  type: 'test'
+  ...
+# Subtest: maps length finish reason without inventing text
+ok 13 - maps length finish reason without inventing text
+  ---
+  duration_ms: 5.565747
+  type: 'test'
+  ...
+# Subtest: throws ModelHttpError with bounded response details
+ok 14 - throws ModelHttpError with bounded response details
+  ---
+  duration_ms: 5.871855
+  type: 'test'
+  ...
+# Subtest: rejects malformed tool arguments instead of executing an ambiguous call
+ok 15 - rejects malformed tool arguments instead of executing an ambiguous call
+  ---
+  duration_ms: 4.9291
+  type: 'test'
+  ...
+# Subtest: rejects responses without a first assistant choice
+ok 16 - rejects responses without a first assistant choice
+  ---
+  duration_ms: 4.339082
+  type: 'test'
+  ...
+# Subtest: honors AbortSignal while the provider request is pending
+ok 17 - honors AbortSignal while the provider request is pending
+  ---
+  duration_ms: 2.519363
+  type: 'test'
+  ...
+# Subtest: awaited message sink persists user, assistant and tool before effects and next request
+not ok 18 - awaited message sink persists user, assistant and tool before effects and next request
+  ---
+  duration_ms: 2.568569
+  type: 'test'
+  location: '<project>/test/session.test.ts:19:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + undefined
+    - 'user'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'user'
+  operator: 'strictEqual'
+  stack: |-
+    Object.complete (file://<project>/test/session.test.ts:23:12)
+    runAgentLoop (file://<project>/src/agent/agent-loop.ts:127:44)
+    TestContext.<anonymous> (file://<project>/test/session.test.ts:22:24)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: sink rejection prevents model and tool side effects
+not ok 19 - sink rejection prevents model and tool side effects
+  ---
+  duration_ms: 0.631606
+  type: 'test'
+  location: '<project>/test/session.test.ts:31:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  operator: 'rejects'
+  stack: |-
+    async TestContext.<anonymous> (file://<project>/test/session.test.ts:33:3)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: session round-trips all internal messages and metadata into next request
+not ok 20 - session round-trips all internal messages and metadata into next request
+  ---
+  duration_ms: 9.786506
+  type: 'test'
+  location: '<project>/test/session.test.ts:38:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module '<project>/src/session/session.ts' imported from <project>/test/session.test.ts"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:275:11)
+    moduleResolve (node:internal/modules/esm/resolve:861:10)
+    defaultResolve (node:internal/modules/esm/resolve:985:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+    onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:680:36)
+    TracingChannel.tracePromise (node:diagnostics_channel:350:14)
+    ModuleLoader.import (node:internal/modules/esm/loader:679:21)
+    defaultImportModuleDynamicallyForModule (node:internal/modules/esm/utils:222:31)
+  ...
+# Subtest: version and configuration mismatch reject restore
+not ok 21 - version and configuration mismatch reject restore
+  ---
+  duration_ms: 2.271081
+  type: 'test'
+  location: '<project>/test/session.test.ts:55:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module '<project>/src/session/session.ts' imported from <project>/test/session.test.ts"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:275:11)
+    moduleResolve (node:internal/modules/esm/resolve:861:10)
+    defaultResolve (node:internal/modules/esm/resolve:985:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+    onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:680:36)
+    TracingChannel.tracePromise (node:diagnostics_channel:350:14)
+    ModuleLoader.import (node:internal/modules/esm/loader:679:21)
+    defaultImportModuleDynamicallyForModule (node:internal/modules/esm/utils:222:31)
+  ...
+# Subtest: bad JSON, truncated final line and invalid message reject with explicit errors
+not ok 22 - bad JSON, truncated final line and invalid message reject with explicit errors
+  ---
+  duration_ms: 1.906556
+  type: 'test'
+  location: '<project>/test/session.test.ts:64:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module '<project>/src/session/session.ts' imported from <project>/test/session.test.ts"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:275:11)
+    moduleResolve (node:internal/modules/esm/resolve:861:10)
+    defaultResolve (node:internal/modules/esm/resolve:985:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+    onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:680:36)
+    TracingChannel.tracePromise (node:diagnostics_channel:350:14)
+    ModuleLoader.import (node:internal/modules/esm/loader:679:21)
+    defaultImportModuleDynamicallyForModule (node:internal/modules/esm/utils:222:31)
+  ...
+# Subtest: unpaired or mismatched tool calls refuse resume without replay
+not ok 23 - unpaired or mismatched tool calls refuse resume without replay
+  ---
+  duration_ms: 2.058946
+  type: 'test'
+  location: '<project>/test/session.test.ts:75:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module '<project>/src/session/session.ts' imported from <project>/test/session.test.ts"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:275:11)
+    moduleResolve (node:internal/modules/esm/resolve:861:10)
+    defaultResolve (node:internal/modules/esm/resolve:985:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+    onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:680:36)
+    TracingChannel.tracePromise (node:diagnostics_channel:350:14)
+    ModuleLoader.import (node:internal/modules/esm/loader:679:21)
+    defaultImportModuleDynamicallyForModule (node:internal/modules/esm/utils:222:31)
+  ...
+# Subtest: concurrent runs and duplicate process-local session owners are rejected
+not ok 24 - concurrent runs and duplicate process-local session owners are rejected
+  ---
+  duration_ms: 2.728766
+  type: 'test'
+  location: '<project>/test/session.test.ts:88:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module '<project>/src/session/session.ts' imported from <project>/test/session.test.ts"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:275:11)
+    moduleResolve (node:internal/modules/esm/resolve:861:10)
+    defaultResolve (node:internal/modules/esm/resolve:985:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+    onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:680:36)
+    TracingChannel.tracePromise (node:diagnostics_channel:350:14)
+    ModuleLoader.import (node:internal/modules/esm/loader:679:21)
+    defaultImportModuleDynamicallyForModule (node:internal/modules/esm/utils:222:31)
+  ...
+# Subtest: failed run poisons instance; existing log is never overwritten
+not ok 25 - failed run poisons instance; existing log is never overwritten
+  ---
+  duration_ms: 1.533731
+  type: 'test'
+  location: '<project>/test/session.test.ts:99:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module '<project>/src/session/session.ts' imported from <project>/test/session.test.ts"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:275:11)
+    moduleResolve (node:internal/modules/esm/resolve:861:10)
+    defaultResolve (node:internal/modules/esm/resolve:985:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+    onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:680:36)
+    TracingChannel.tracePromise (node:diagnostics_channel:350:14)
+    ModuleLoader.import (node:internal/modules/esm/loader:679:21)
+    defaultImportModuleDynamicallyForModule (node:internal/modules/esm/utils:222:31)
+  ...
+# Subtest: offline report demo runs in two processes, restores context and writes a real report
+not ok 26 - offline report demo runs in two processes, restores context and writes a real report
+  ---
+  duration_ms: 27.283452
+  type: 'test'
+  location: '<project>/test/session.test.ts:110:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    node:internal/modules/cjs/loader:1433
+      throw err;
+      ^
+    
+    Error: Cannot find module '<project>/src/report-demo.ts'
+        at Function._resolveFilename (node:internal/modules/cjs/loader:1430:15)
+        at defaultResolveImpl (node:internal/modules/cjs/loader:1040:19)
+        at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1045:22)
+        at Function._load (node:internal/modules/cjs/loader:1216:25)
+        at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)
+        at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+        at node:internal/main/run_main_module:36:49 {
+      code: 'MODULE_NOT_FOUND',
+      requireStack: []
+    }
+    
+    Node.js v22.22.3
+    
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    Function._resolveFilename (node:internal/modules/cjs/loader:1430:15)
+    defaultResolveImpl (node:internal/modules/cjs/loader:1040:19)
+    resolveForCJSWithHooks (node:internal/modules/cjs/loader:1045:22)
+    Function._load (node:internal/modules/cjs/loader:1216:25)
+    wrapModuleLoad (node:internal/modules/cjs/loader:254:19)
+    Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    node:internal/main/run_main_module:36:49 {
+    TestContext.<anonymous> (file://<project>/test/session.test.ts:114:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: events report ordered lifecycle and correlated tool result
+ok 27 - events report ordered lifecycle and correlated tool result
+  ---
+  duration_ms: 2.471655
+  type: 'test'
+  ...
+# Subtest: failed tool emits tool_end with error and remains visible to next turn
+ok 28 - failed tool emits tool_end with error and remains visible to next turn
+  ---
+  duration_ms: 0.338527
+  type: 'test'
+  ...
+# Subtest: event callback exception propagates; events are observation not persistence
+ok 29 - event callback exception propagates; events are observation not persistence
+  ---
+  duration_ms: 0.671936
+  type: 'test'
+  ...
+# Subtest: read/write tools validate arguments, persist UTF-8, and reject traversal and symlinks
+ok 30 - read/write tools validate arguments, persist UTF-8, and reject traversal and symlinks
+  ---
+  duration_ms: 14.136871
+  type: 'test'
+  ...
+# Subtest: real file tool result returns to the model in the next request
+ok 31 - real file tool result returns to the model in the next request
+  ---
+  duration_ms: 3.423576
+  type: 'test'
+  ...
+# Subtest: shell tool requires explicit opt-in, limits output and times out
+ok 32 - shell tool requires explicit opt-in, limits output and times out
+  ---
+  duration_ms: 211.001437
+  type: 'test'
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 23
+# fail 9
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 363.582186
